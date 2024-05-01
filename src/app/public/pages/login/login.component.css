@@ -1,0 +1,66 @@
+.LoginScreen {
+  background: url('banner.png') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+form {
+  border:3px solid #808000;
+  background-color:  #D3F2CE;
+  border-radius: 20px;
+  padding: 25px;
+  width: 300px;
+  height: 280px;
+  margin: 30px auto;
+}
+
+.tituloIS{
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+  font-weight: bold;
+  color: #8B4513;
+}
+
+form div {
+  margin-bottom: 10px;
+  color: #8B4513;
+}
+
+input[type="email"], input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+button {
+  color: #8B4513;
+  display: block;
+  background-color: white;
+  padding: 10px 25px;
+  border: 2px solid #FFA726;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50px;
+}
+
+button:hover {
+  color: #8B4513;
+  background-color: #FFA726;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.redirection{
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #FFA726;
+}
