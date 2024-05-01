@@ -1,0 +1,18 @@
+<div class="containerList">
+  <mat-card *ngFor="let plan of plans" class="plans-mat-card ">
+    <mat-card-header>
+      <h1>{{plan.name}}</h1>
+    </mat-card-header>
+    <img mat-card-image
+         [src]="plan.imgUrl"
+         [alt]="plan.name"/>
+    <mat-card-content>
+      <p>{{plan.description}}</p>
+    </mat-card-content>
+    <button>Comprar</button>
+  </mat-card>
+</div>
+
+<div *ngIf="!plans || plans.length === 0">
+  No drinks found.
+</div>
