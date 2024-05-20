@@ -1,0 +1,17 @@
+<table mat-table [dataSource]="ordersRestaurant" class="mat-elevation-z8 custom-table">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+  <ng-container matColumnDef="customer">
+    <th mat-header-cell *matHeaderCellDef> Clientes </th>
+    <td mat-cell *matCellDef="let element"> {{element.customer}} </td>
+  </ng-container>
+  <ng-container matColumnDef="nOrders">
+    <th mat-header-cell *matHeaderCellDef> N° de Órdenes </th>
+    <td mat-cell *matCellDef="let element"> {{element.nOrders}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayColumn"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayColumn;"></tr>
+</table>
+

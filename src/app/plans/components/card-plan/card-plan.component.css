@@ -1,0 +1,44 @@
+.plans-mat-card{
+  width: 300px;
+  margin: 10px;
+  border-radius: 30px;
+  background: none;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border: #D9D052 2px solid;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+  padding: 15px 10px;
+
+}
+.containerList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 100px
+}
+.containerList img{
+  height: 150px;
+  width: 150px;
+  border-radius: 70px;
+}
+p{
+  margin: 20px 5px;
+}
+mat-card-content{
+  padding-bottom: 10px;
+}
+button {
+  background-color: black;
+  color: white;
+  height: 60px;
+  font-size: 24px;
+  width: 200px;
+  border-radius: 35px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+  margin: 30px 0px
+}
+button:hover {
+  background-color: #333;
+}

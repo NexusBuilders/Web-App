@@ -1,0 +1,19 @@
+*{
+  padding: 0;
+}
+.containerOrder{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(211, 242, 206);
+  padding:10px;
+}
+.carta{
+  background-color: rgb(226, 226, 226);
+  border-radius: 40px;
+  margin: 3%;
+  border: black solid 2px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+h2{
+  padding-left: 5%;
+}
