@@ -1,41 +1,219 @@
-.user-profile {
-  padding: 20px;
-  background-color: #f3f3f3;
-  border-radius: 8px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-  margin-bottom: 20px;
-  color: #333;
-}
-
-form {
-  display: flex;
+.profile{
   flex-direction: column;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh ;
+  background-color: #D3F2CE;
+  padding: 50px;
+}
+.profile-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-label {
-  font-weight: bold;
+.profile-image {
+  width: 130px;
+  height: 120px;
+  border-radius: 50%;
+  margin-right: 20px;
 }
 
-input[type="text"], input[type="email"] {
+.profile-button{
+  text-align: left !important;
+  border-radius: 15px;
+  color: #8B4513;
+  background-color: #97E896;
+  padding: 10px;
+  width: 350px;
+  height: 40px;
+}
+.profile-button:hover{
+  text-align: left !important;
+  color: #28AE61;
+  background-color: #F2F2F2;
+  border-radius: 40px;
+  border: 2px solid #FFA726;
+  padding: 10px;
+}
+
+.update-button{
+  border-radius: 40px;
+  color: #8B4513;
+  background-color: #FFA726;
+  padding: 10px;
+}
+.update-button:hover{
+  color: #28AE61;
+  background-color: #F2F2F2;
+  border-radius: 40px;
+  border: 2px solid #FFA726;
+  padding: 10px;
+}
+.user-details {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.user-details h2 {
+  font-size: 40px;
+  margin: 0;
+}
+
+.user-details p {
+  font-size: 18px;
+  margin: 0;
+}
+
+.menu-container {
+  padding: 10px;
+  width: 200px;
+}
+
+.menu-button {
+  background-color: #97E896;
+  border: none;
+  border-radius: 15px;
+  color: #8B4513;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 250px;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.menu-button i {
+  margin-right: 10px;
+}
+
+.menu-button:hover {
+  background-color: #F2F2F2;
+  border: 2px solid #FFA726;
+  color: #28AE61;
+}
+
+.profile-form {
+  margin-top: 50px;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+.uppercase-text {
+  text-transform: uppercase;
+}
+
+input[type="name"], [type="lastname"], [type="email"],input[type="phone"] {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  color: black;
+}
+
+.profile-popup {
+  color: #8B4513;
+  width: 450px;
+  height: 400px;
+  position: absolute;
+  left: 40%;
+  top: 30%;
+  background-color: #7EC8E3;
+  border: 3px solid #FFA726;
+  border-radius: 20px;
+}
+.popup-profile-info{
+  text-align: left;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding:30px;
+}
+.popup-profile-info p {
+  font-size: 20px;
+  flex: 1;
+}
+.popup-profile-info h3 {
+  font-size: 35px;
+  flex: 1;
+}
+.popup-profile-info button{
+  left: 70%;
+  position: absolute;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: rgb(235, 105, 105);
+}
+.popup-profile-info  a button {
+  left: 60%;
+  top: 23%;
+  font-size: 15px;
+  position: absolute;
+}
+.popup-profile-info  p button {
+  left: 80%;
+  top: 23%;
+  font-size: 15px;
+  position: absolute;
+}
+.popup-profile-image{
+  width: 100px;
+  height: 100px;
+  border-radius: 80%;
+  position:relative;
+  margin-left: 30px;
+}
+
+.popup-user-details button{
+  font-size: 15px;
+  position: absolute;
+  margin-top: -40px;
+  margin-left: 90px;
+}
+input[type="text"] {
+  width: 60%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 100%;
+  font-size: 16px;
 }
-
-button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px;
-  border: none;
+.select-field {
+  margin-left: 0;
+  width: auto;
+  appearance: none;
+  padding: 8px 24px 8px 12px;
+  border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 16px;
+  background-color: #fff;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #0056b3;
+.select-field option:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+
+.select-field option:checked {
+  background-color: #007bff;
+  color: #fff;
+}
+.popup-user-details button.guardar {
+  left: 460px;
+  top: 280px;
+}
+.popup-user-details button.save {
+  left: 460px;
+  top: 360px;
+}
+.popup-user-details button.sa {
+  left: 460px;
+  top: 440px;
 }

@@ -33,6 +33,9 @@ import { TableStockComponent } from './stock/components/table-stock/table-stock.
 import { StockComponent } from './public/pages/stock/stock.component';
 import { FooterComponent } from './public/footer/footer.component';
 import { NavbarComponent } from './public/navbar/navbar.component';
+import {UserProfileComponent} from "./public/pages/userprofile/userprofile.component";
+import {InicioSesionComponent} from "./public/pages/login/login.component";
+import {ReactiveFormsModule} from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +51,9 @@ import { NavbarComponent } from './public/navbar/navbar.component';
     TableStockComponent,
     StockComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserProfileComponent,
+    InicioSesionComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +74,7 @@ import { NavbarComponent } from './public/navbar/navbar.component';
     MatCellDef,
     MatHeaderRowDef,
     MatRowDef,
+    ReactiveFormsModule,
   ],
   providers: [
     provideAnimationsAsync(),
