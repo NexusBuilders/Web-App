@@ -1,0 +1,41 @@
+.fotoo{
+  width: 160px;
+  height: 160px;
+  position: center;
+}
+.foto{
+  display: flex; /*necesario para utilizar justify y align para centrar vertival y horizontal*/
+  justify-content: center; /*centra de manera horizontal*/
+  align-items: center;  /*centra de manera vertical*/
+
+}
+
+.perfil .SeccionBotones{
+  margin: 30px auto;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.btn{
+  width: 100%;
+}
+
+.perfil{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.SeccionFormulario{
+  grid-column: span 2;
+}
+
+.perfil .SeccionBotones  > div {
+  display: flex; /*necesario para utilizar justify y align para centrar vertival y horizontal*/
+  justify-content: center; /*centra de manera horizontal*/
+  align-items: center;  /*centra de manera vertical*/
+  margin: 20px auto;
+}
+

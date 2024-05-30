@@ -1,0 +1,47 @@
+.tabla{
+  margin-right: 50px;
+  margin-left: 50px;
+  margin-bottom: 30px;
+}
+
+.cuadroTabla{
+  background-color: white;
+}
+
+.Pedidos > div{
+  margin-top: 30px;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.Pedidos{
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.tabla{
+  grid-column: span 2;
+}
+
+.ClientesCard{
+  margin:50px;
+  box-shadow: 1px 2px 1px #2d2929;
+}
+
+/*centra el texto de h1*/
+.ClientesCard .Pedidos .nPedidos > h1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cuadroTabla .Unidad > td{
+  display: flex;
+  align-items: center;
+}
+
+.Pedidos >button{
+  background-color: limegreen;
+  margin:20px;
+}

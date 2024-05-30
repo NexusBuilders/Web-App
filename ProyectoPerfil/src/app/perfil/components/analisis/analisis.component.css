@@ -1,0 +1,19 @@
+.AnalisisCard{
+  width: 90%;
+  max-height: 900px;
+}
+
+.Analisis{
+  margin: 20px auto;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  height: 1000px;
+  display: flex; /*necesario para utilizar justify y align para centrar vertival y horizontal*/
+
+  align-items: center;  /*centra de manera vertical*/
+}
+
+.Analisis .ImagenesOpciones{
+  grid-column: span 2;
+}

@@ -1,0 +1,22 @@
+
+
+
+.cuadroTabla{
+  background-color: rgba(234, 175, 124, 0.85);
+
+  box-shadow: 1px 1px 1px #2d2929;
+}
+
+
+.STOCK{
+  margin:50px;
+
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.tabla{
+  grid-column: span 3;
+}
+

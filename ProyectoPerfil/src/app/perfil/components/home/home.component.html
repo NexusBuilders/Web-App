@@ -1,0 +1,23 @@
+
+
+<mat-card class="BotonCard">
+  <div class="Home">
+    <div class="SeccionBotones">
+
+      <!-- Este es un ejemplo de que tambien se puede hacer con RouterLink o con una funcion que tenga route.navigate([[pagina])-->
+      <!-- El RouterLink accede el link '/Pedidos' desde el link en el que ya esta (http:local:4080/dashboard/v1 -> http:local:4080/dashboard/v1/Pedidos), en cambio con esta funcion gotopage que hace la funcion route.navigate([pagina]) borra toh el link en el que estas (http:local:4080/dashboard/v1 -> http:local:4080/Pedidos) y accede al link de la 'pagina' (http:local:4080) -->
+      <!--<Button class="btn btn-success my-2" routerLink="Pedidos">Pedidos</Button>-->
+      <Button class="btn btn-success my-2" (click)="gotopage('Pedidos')">Pedidos</Button>
+
+      <!--<Button class="btn btn-success my-2" routerLink="Analisis">Analisis de Negocio</Button>-->
+      <Button class="btn btn-success my-2" (click)="gotopage('Analisis') ">Analisis de negocio</Button>
+
+      <!--<Button class="btn btn-success my-2" routerLink="Perfil">Perfil</Button>-->
+      <Button class="btn btn-success my-2" (click)="gotopage('Perfil')">Perfil</Button>
+
+      <!--<Button class="btn btn-success my-2" routerLink="Stock">Stock</Button>-->
+      <Button class="btn btn-success my-2" (click)="gotopage('Stock')">Stock</Button>
+
+    </div>
+  </div>
+</mat-card>
