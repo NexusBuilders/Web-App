@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {InicioSesionComponent} from "./public/pages/login/login.component";
-import {RegisterComponent} from "./public/pages/register/register.component";
-import {UserProfileComponent} from "./public/pages/userprofile/userprofile.component";
-import {PlanComponent} from "./public/pages/plan/plan.component";
-import {RestaurantComponent} from "./public/pages/restaurant/restaurant.component";
-import {StockComponent} from "./public/pages/stock/stock.component";
-import {OrderComponent} from "./public/pages/order/order.component";
-import {OrderRestaurantTableComponent} from "./public/pages/order-restaurant-table/order-restaurant-table.component";
+import {InicioSesionComponent} from "./components/login/login.component";
+import {RegisterComponent} from "./components/register/register.component";
+import {UserProfileComponent} from "./components/userprofile/userprofile.component";
+import {PlanComponent} from "./components/plan/plan.component";
+import {RestaurantComponent} from "./components/restaurant/restaurant.component";
+import {StockComponent} from "./components/stock/stock.component";
+import {OrderComponent} from "./components/order/order.component";
+import {OrderRestaurantTableComponent} from "./components/order-restaurant-table/order-restaurant-table.component";
 
 const routes: Routes = [
   { path: 'login',component:InicioSesionComponent},

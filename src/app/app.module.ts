@@ -13,11 +13,8 @@ import {NgOptimizedImage} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 import {environment} from "../environments/environments";
 import {DrinkService} from "./orders/services/drink.service";
-import { OrderComponent } from './public/pages/order/order.component';
 import { CardRestaurantComponent } from './restaurants/components/card-plan/card-restaurant.component';
-import { RestaurantComponent } from './public/pages/restaurant/restaurant.component';
 import {CardPlanComponent} from "./plans/components/card-plan/card-plan.component";
-import { PlanComponent } from './public/pages/plan/plan.component';
 import { TableOrdersRestaurantComponent } from './orders-restaurant/components/table-orders-restaurant/table-orders-restaurant.component';
 import {
   MatCell, MatCellDef,
@@ -28,11 +25,14 @@ import {
   MatRow, MatRowDef,
   MatTable
 } from "@angular/material/table";
-import { OrderRestaurantTableComponent } from './public/pages/order-restaurant-table/order-restaurant-table.component';
 import { TableStockComponent } from './stock/components/table-stock/table-stock.component';
-import { StockComponent } from './public/pages/stock/stock.component';
 import { FooterComponent } from './public/footer/footer.component';
 import { NavbarComponent } from './public/navbar/navbar.component';
+import {OrderComponent} from "./components/order/order.component";
+import {RestaurantComponent} from "./components/restaurant/restaurant.component";
+import {PlanComponent} from "./components/plan/plan.component";
+import {OrderRestaurantTableComponent} from "./components/order-restaurant-table/order-restaurant-table.component";
+import {StockComponent} from "./components/stock/stock.component";
 @NgModule({
   declarations: [
     AppComponent,
