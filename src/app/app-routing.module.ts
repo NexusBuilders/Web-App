@@ -8,6 +8,7 @@ import {RestaurantComponent} from "./public/pages/restaurant/restaurant.componen
 import {StockComponent} from "./public/pages/stock/stock.component";
 import {OrderComponent} from "./public/pages/order/order.component";
 import {OrderRestaurantTableComponent} from "./public/pages/order-restaurant-table/order-restaurant-table.component";
+import {OrderSummaryComponent} from "./component/order-summary/order-summary.component";
 
 const routes: Routes = [
   { path: 'login',component:InicioSesionComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'order', component: OrderComponent },
   { path: 'orderRestaurant', component: OrderRestaurantTableComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {path:'order-summary', component: OrderSummaryComponent},
   //{ path: '**', component: PageNotFoundComponent },
 ];
 @NgModule({

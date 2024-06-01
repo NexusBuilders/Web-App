@@ -1,0 +1,48 @@
+.order-summary-card {
+  margin: 20px;
+  background-color: #97E896;
+  color: black;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.order-summary-card h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.order-summary-card button {
+  background-color: #97E896;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.order-summary-card button:hover {
+  background-color: #2E7D32;
+}
+
+.order-summary-card .mat-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.order-summary-card .mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.order-summary-card .pay-button {
+  background-color: #388E3C;
+  padding: 10px 20px;
+}
+
+.order-summary-card .pay-button:hover {
+  background-color: #2E7D32;
+}

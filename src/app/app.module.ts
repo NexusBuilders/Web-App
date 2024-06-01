@@ -33,6 +33,10 @@ import { TableStockComponent } from './stock/components/table-stock/table-stock.
 import { StockComponent } from './public/pages/stock/stock.component';
 import { FooterComponent } from './public/footer/footer.component';
 import { NavbarComponent } from './public/navbar/navbar.component';
+import { OrderConfirmationDialogComponent } from './component/order-confirmation-dialog/order-confirmation-dialog.component';
+import { OrderSummaryComponent } from './component/order-summary/order-summary.component';
+import {MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
+import {MatList, MatListItem} from "@angular/material/list";
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +52,9 @@ import { NavbarComponent } from './public/navbar/navbar.component';
     TableStockComponent,
     StockComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    OrderConfirmationDialogComponent,
+    OrderSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +75,12 @@ import { NavbarComponent } from './public/navbar/navbar.component';
     MatCellDef,
     MatHeaderRowDef,
     MatRowDef,
+    MatDialogClose,
+    MatDialogActions,
+    MatDialogContent,
+    MatDialogTitle,
+    MatList,
+    MatListItem,
   ],
   providers: [
     provideAnimationsAsync(),
