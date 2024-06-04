@@ -1,0 +1,59 @@
+<span class="card border m-4 top-1 start-50 d-flex justify-content-center align-items-right">
+      <mat-card class="formulario ">
+        <div class="formularioCompleto">
+          <h1 class="datos"> Mis datos</h1>
+          <form [formGroup]="formUser">
+            <div class="mb-2">
+
+              <label class="form-label">
+                Nombre
+              </label>
+              <br>
+              <input type="text" formControlName="name" class="form-control" placeholder="Ingrese su nombre">
+              <div class="alert alert-danger mt-2" [hidden]="formUser.get('name')?.valid || formUser.get('name')?.pristine">
+                El nombre es obligatorio
+              </div>
+            </div>
+            <div class="mb-2">
+              <label class="form-label">
+                Direccion
+              </label>
+              <br>
+              <input type="text" formControlName="Direc" class="form-control" placeholder="Ingrese su Direccion">
+              <div class="alert alert-danger mt-2" [hidden]="formUser.get('Direc')?.valid || formUser.get('Direc')?.pristine">
+                La direccion es obligatoria
+              </div>
+            </div>
+            <div class="mb-2">
+              <label class="form-label">
+                Correo Electronico
+              </label>
+              <br>
+              <input type="email" formControlName="email" class="form-control" placeholder="Ingrese su Email">
+              <div class="alert alert-danger mt-2" [hidden]="formUser.get('email')?.valid || formUser.get('email')?.pristine">
+                <span *ngIf="formUser.get('email')?.errors?.['required']">
+                  El email es obligatorio
+                </span>
+
+                <span *ngIf="formUser.get('email')?.errors?.['email']">
+                  El email debe ser valido
+                </span>
+              </div>
+            </div>
+            <div class="mb-2">
+              <label class="form-label">
+                Telefono
+              </label>
+              <br>
+              <input type="text" formControlName="tel" class="form-control" placeholder="Ingrese su numero de telefono">
+              <div class="alert alert-danger mt-2" [hidden]="formUser.get('tel')?.valid || formUser.get('tel')?.pristine">
+                El telefono es obligatorio
+              </div>
+            </div>
+            <div class="boton">
+              <button class="btn btn-primary" [disabled]="formUser.invalid">Actualizar Datos</button>
+            </div>
+          </form>
+        </div>
+      </mat-card>
+  </span>

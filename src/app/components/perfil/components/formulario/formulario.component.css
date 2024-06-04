@@ -1,0 +1,35 @@
+.formularioCompleto{
+  margin: 30px ;
+}
+
+.formulario{
+  background-color: limegreen;
+  color: white;
+  max-width: 500px;
+  margin: 50px;
+}
+
+.datos{
+  display: flex;
+  justify-content: left;
+  margin-bottom: 60px;
+}
+
+.boton{
+  display: flex; /*necesario para utilizar justify y align para centrar vertival y horizontal*/
+  justify-content: center; /*centra de manera horizontal*/
+  margin-top: 80px ;
+  margin-bottom: 10px;
+}
+
+.mb-2 {
+  margin-top: 30px;
+}
+
+.mb-2 >input{
+  width: 100%;
+}
+
+.form-label{
+  margin-bottom: 20px;
+}
