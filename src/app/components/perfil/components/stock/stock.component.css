@@ -1,0 +1,34 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.cuadroTabla{
+  background-color: rgba(234, 175, 124, 0.85);
+
+  box-shadow: 1px 1px 1px #2d2929;
+}
+.STOCK{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden; /* Evita el desplazamiento vertical */
+  align-items: center;
+  justify-content: center;
+  background-color: #97E896;
+}
+.titulos{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+.tabla{
+  grid-column: span 3;
+  width: 80%;
+}
