@@ -7,7 +7,7 @@
   align-items: center;
 }
 .logo img {
-  max-height: 50px;
+  max-height:80px;
 }
 .nav-links {
   list-style-type: none;
@@ -26,6 +26,6 @@
   font-size: 16px;
    margin: 0px 20px;
 }
-.nav-links li a:hover {
+.navbar ul a:hover {
   text-decoration: underline;
 }

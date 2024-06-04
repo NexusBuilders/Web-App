@@ -1,4 +1,22 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedor principal que abarca todo el viewport */
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 .containerPlans{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
   background-color: #D3F2CE ;
-  padding:100px;
+  align-items: center;
+  justify-content: center;
 }

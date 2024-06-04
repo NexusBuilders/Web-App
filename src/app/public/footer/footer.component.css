@@ -1,11 +1,46 @@
-div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #D4E157;
-}
 
 p {
   text-align: center;
-  color: #8B4513;
+  color: white;
+}
+.logo-section img{
+  max-height: 100px;
+  margin-left: 20px
+}
+.footer{
+  display: flex;
+  width: 100%;
+  background-color: #D4E157;
+  justify-content: space-between;
+  align-items: center;
+}
+.contact-section{
+  display: flex;
+  flex-direction: column;
+}
+.contactanos p{
+  font-size: 18px;
+  margin: 5px 0;
+}
+.email-number{
+  display: flex;
+  align-items: center;
+  color: White;
+  justify-content: center;
+}
+.email-number i{
+  margin-right: 10px;
+}
+.contactanos {
+  display: flex;
+  flex-direction: column;
+}
+.footer-redes{
+  display: flex;
+  margin-right: 30px;
+  font-size: 32px;
+  color: white;
+}
+.footer-redes i{
+  margin-right: 10px;
 }

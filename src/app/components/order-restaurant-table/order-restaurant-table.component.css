@@ -1,8 +1,25 @@
-*{
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedor principal que abarca todo el viewport */
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 .containerOrderRestaurant{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
   background-color: #97E896;
 }
 .table{
-  padding: 100px 50px;
+  width: 80%;
 }

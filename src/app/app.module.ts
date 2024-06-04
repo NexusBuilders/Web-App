@@ -12,6 +12,7 @@ import {MatIcon} from "@angular/material/icon";
 import {NgOptimizedImage} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 import {environment} from "../environments/environments";
+import {InicioSesionComponent} from "./components/login/login.component";
 import {DrinkService} from "./orders/services/drink.service";
 import { CardRestaurantComponent } from './restaurants/components/card-plan/card-restaurant.component';
 import {CardPlanComponent} from "./plans/components/card-plan/card-plan.component";
@@ -33,6 +34,21 @@ import {RestaurantComponent} from "./components/restaurant/restaurant.component"
 import {PlanComponent} from "./components/plan/plan.component";
 import {OrderRestaurantTableComponent} from "./components/order-restaurant-table/order-restaurant-table.component";
 import {StockComponent} from "./components/stock/stock.component";
+import {UserProfileComponent} from "./components/userprofile/userprofile.component";
+import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
+import { OrderConfirmationDialogComponent } from './components/order-confirmation-dialog/order-confirmation-dialog.component';
+import {MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
+import {MatList, MatListItem} from "@angular/material/list";
+import { AnalisisComponent } from './components/perfil/components/analisis/analisis.component';
+import { FormularioComponent } from './components/perfil/components/formulario/formulario.component';
+import { HomeComponent } from './components/perfil/components/home/home.component';
+import { OverviewComponent } from './components/perfil/components/overview/overview.component';
+import { PedidosComponent } from './components/perfil/components/pedidos/pedidos.component';
+import { SeccionPerfilComponent } from './components/perfil/components/seccion-perfil/seccion-perfil.component';
+import { TopClientesComponent } from './components/perfil/components/top-clientes/top-clientes.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {StockRestaurantComponent} from "./components/perfil/components/stock/stock.component";
+import { NavbarRestaurantComponent } from './public/navbar-restaurant/navbar-restaurant.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +64,21 @@ import {StockComponent} from "./components/stock/stock.component";
     TableStockComponent,
     StockComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserProfileComponent,
+    InicioSesionComponent,
+    OrderSummaryComponent,
+    OrderConfirmationDialogComponent,
+    AnalisisComponent,
+    FormularioComponent,
+    HomeComponent,
+    OverviewComponent,
+    PedidosComponent,
+    SeccionPerfilComponent,
+    TopClientesComponent,
+    StockRestaurantComponent,
+    NavbarRestaurantComponent
+
   ],
   imports: [
     BrowserModule,
@@ -69,6 +99,13 @@ import {StockComponent} from "./components/stock/stock.component";
     MatCellDef,
     MatHeaderRowDef,
     MatRowDef,
+    MatDialogClose,
+    MatDialogActions,
+    MatDialogContent,
+    MatDialogTitle,
+    MatList,
+    MatListItem,
+    ReactiveFormsModule,
   ],
   providers: [
     provideAnimationsAsync(),
