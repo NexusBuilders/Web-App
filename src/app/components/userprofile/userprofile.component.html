@@ -1,18 +1,52 @@
-<div>
-  <form>
-    <div>
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" formControlName="nombre">
+<app-navbar></app-navbar>
+<div class="containerUserProfile">
+  <section class="profile">
+    <div class="profile-info">
+      <img src = "{{fotoPerfil}}" alt="Imagen de perfil" class="profile-image">
+      <div class="user-details">
+        <h2>{{ nombreUsuario }}</h2>
+        <p class="uppercase-text">{{ correoElectronico }}</p>
+      </div>
+      <hr class="divider-line">
     </div>
-    <div>
-      <label for="apellido">Apellido:</label>
-      <input type="text" id="apellido" formControlName="apellido">
+    <div class="menu-container">
+      <button class="menu-button" *ngFor="let item of menuItems" (click)="showProfilePopup()">
+        <i class="{{ item.icon }}"></i>
+        <span>{{ item.text }}</span>
+      </button>
+      <!--button class="menu-button"  (click)="cerrarSesion()" -->
+      <button class="menu-button"  routerLink="/login" >
+        <i class='fa fa-sign-out'></i>
+        <span >Cerrar Sesion</span>
+      </button>
     </div>
-    <div>
-      <label for="correo">Correo:</label>
-      <input type="email" id="correo" formControlName="correo">
+  </section>
+  <div class="profile-popup" *ngIf="showPopup">
+    <div class="profile-popup-content">
+      <div class="popup-profile-info">
+        <a>Mis Datos</a>
+        <div class="popup-user-details">
+          <div>
+            <label for="name">Nombre: </label>
+            <input type="name" id="name" [value]= "nombre" name="nombre">
+          </div>
+          <div>
+            <label for="lastname">Apellidos: </label>
+            <input type="lastname" id="lastname" [value]="apellido" name="apellidos">
+          </div>
+          <div>
+            <label for="email">Correo Electrónico: </label>
+            <input type="email"  id="email" [value]="correoElectronico" name="correo">
+          </div>
+          <div>
+            <label for="phone">Teléfono: </label>
+            <input type="phone" id="phone" [value]="telefono" name="telefono">
+          </div>
+          <a class="update-button" mat-button>Actualizar Datos</a>
+        </div>
+      </div>
     </div>
-    <!-- Agrega más campos según sea necesario -->
-    <button type="submit">Guardar cambios</button>
-  </form>
+  </div>
 </div>
+
+<app-footer></app-footer>
