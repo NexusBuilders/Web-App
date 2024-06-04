@@ -8,13 +8,16 @@
   height: 100vh;
 }
 form {
+  display: flex;
+  flex-direction: column;
   border:3px solid #808000;
   background-color:  #D3F2CE;
   border-radius: 20px;
   padding: 25px;
   width: 300px;
-  height: 400px;
+  height: 450px;
   margin: 30px auto;
+  justify-content: center;
 }
 
 .tituloSU{
@@ -56,9 +59,11 @@ button:hover {
 }
 
 .redirection{
-  padding: 30px;
+  display: flex;
+  flex-direction: column;
   text-align: center;
   margin-bottom: 20px;
   font-weight: bold;
   color: #FFA726;
+  margin-top: 20px;
 }
