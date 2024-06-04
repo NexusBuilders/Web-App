@@ -1,0 +1,29 @@
+:host {
+  background-color: #97E896;
+  color: black;
+  text-align: center;
+}
+
+mat-card {
+  margin: 20px;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-dialog-actions button {
+  background-color: #388E3C;
+  color: white;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.mat-dialog-actions button:hover {
+  background-color: #2E7D32;
+}
