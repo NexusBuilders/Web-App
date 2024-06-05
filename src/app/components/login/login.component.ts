@@ -1,39 +1,47 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {Router, RouterLink} from "@angular/router";
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {UserService} from "../../shared/services/user.service";
-
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../../shared/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class InicioSesionComponent implements OnInit{
-  LoginForm!: FormGroup;
+export class InicioSesionComponent implements OnInit {
+  title = 'login';
+  loginForm: FormGroup = this.fb.group({
+    email: ['', Validators.required],
+    password: ['', Validators.required]
+  });
 
-  constructor(private fb: FormBuilder, private userService: UserService,
-              private router: Router, private cd: ChangeDetectorRef) {}
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router
+  ) { }
+  ngOnInit(): void {
 
-  ngOnInit() {
-    this.LoginForm = this.fb.group({
-      correo: ['', [Validators.required, Validators.email]],
-      contrasena: ['', Validators.required]
-    });
   }
-  onSubmit() {
-    if (this.LoginForm.valid){
-      this.userService.getUserByEmail(this.LoginForm.value.correo).subscribe(user => {
-        if (user && user.contrasena === this.LoginForm.value.contrasena) {
-
-          this.userService.setUsuarioLogueado(user);
-          alert("Inicio de sesión exitoso");
-
-          //this.router.navigate(['/clientMenu']);
-        } else {
-          alert("Inicio de sesión fallido");
+  onSubmit(): void {
+    if (this.loginForm.valid) {
+      const { email, password } = this.loginForm.value;
+      this.userService.login(email, password).subscribe(
+        (user) => {
+          if (user.userType === 'usuario') {
+            this.router.navigate(['/plan']);
+          } else if (user.userType === 'restaurante') {
+            this.router.navigate(['/home']);
+          } else {
+            console.error('Tipo de usuario no reconocido:', user.userType);
+          }
+        },
+        (error) => {
+          console.error('Error al iniciar sesión:', error);
         }
-      });
+      );
+    } else {
+      console.log('Formulario no válido. Por favor, completa todos los campos.');
     }
   }
 }
