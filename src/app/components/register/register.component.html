@@ -1,24 +1,24 @@
 <section class="SingUpScreen">
-  <form>
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
     <h1 class="tituloSU">Registrarte</h1>
     <div>
       <label for="name">Nombre:</label>
-      <input type="name" id="name" formControlName="nombre" placeholder="Ingrese su nombre">
+      <input type="name" id="name" formControlName="name" placeholder="Ingrese su nombre">
     </div>
 
     <div>
       <label for="lastname">Apellido:</label>
-      <input type="lastname" id="lastname" formControlName="apellido" placeholder="Ingrese su apellido">
+      <input type="lastname" id="lastname" formControlName="lastName" placeholder="Ingrese su apellido">
     </div>
     <div>
       <label for="email">Correo Electronico: </label>
-      <input type="email" id="email" formControlName="correo" placeholder="Ingrese su correo">
+      <input type="email" id="email" formControlName="email" placeholder="Ingrese su correo">
     </div>
     <div>
       <label for="password">Contraseña: </label>
-      <input type="password" id="password" formControlName="correo" placeholder="Ingrese su correo">
+      <input type="password" id="password" formControlName="password" placeholder="Ingrese su contraseña">
     </div>
-    <button type="submit" routerLink="/home">Registrarse</button>
+    <button type="submit">Registrarse</button>
     <a class="redirection">
       <a>¿Ya tienes una cuenta?</a><a class="login-button" routerLink="/login"> Inicia Sesion</a>
     </a>
