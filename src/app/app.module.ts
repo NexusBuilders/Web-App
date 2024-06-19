@@ -49,6 +49,7 @@ import { TopClientesComponent } from './components/perfil/components/top-cliente
 import {ReactiveFormsModule} from "@angular/forms";
 import {StockRestaurantComponent} from "./components/perfil/components/stock/stock.component";
 import { NavbarRestaurantComponent } from './public/navbar-restaurant/navbar-restaurant.component';
+import {UserService} from "./shared/services/user.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -109,7 +110,7 @@ import { NavbarRestaurantComponent } from './public/navbar-restaurant/navbar-res
   ],
   providers: [
     provideAnimationsAsync(),
-    DrinkService,
+    UserService,
     {provide: 'environment', useValue: environment},
 
   ],

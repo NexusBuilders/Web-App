@@ -10,30 +10,34 @@ import { Router } from '@angular/router';
 })
 export class InicioSesionComponent implements OnInit {
   title = 'login';
-  loginForm: FormGroup = this.fb.group({
-    email: ['', Validators.required],
-    password: ['', Validators.required]
-  });
+  loginForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router
-  ) { }
-  ngOnInit(): void {
-
+  ) {
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
+
+  ngOnInit(): void { }
+
   onSubmit(): void {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
+      console.log('Formulario válido, intentando iniciar sesión con:', email, password);
       this.userService.login(email, password).subscribe(
         (user) => {
-          if (user.userType === 'usuario') {
+          console.log('Usuario autenticado:', user);
+          if (user && user.userType === 'usuario') {
             this.router.navigate(['/plan']);
-          } else if (user.userType === 'restaurante') {
+          } else if (user && user.userType === 'restaurante') {
             this.router.navigate(['/home']);
           } else {
-            console.error('Tipo de usuario no reconocido:', user.userType);
+            console.error('Tipo de usuario no reconocido:', user ? user.userType : 'undefined');
           }
         },
         (error) => {

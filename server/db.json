@@ -1,4 +1,14 @@
 {
+  "users": [
+    {
+      "id": 2,
+      "name": "Carlos",
+      "surname": "Lopez",
+      "email": "carloslopez@example.com",
+      "password": "passw1234",
+      "photo": "https://i.imgur.com/YcP0tik.jpeg"
+    }
+  ],
   "drinks": [
     {
       "id": 1,
