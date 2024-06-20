@@ -48,4 +48,7 @@ export class InicioSesionComponent implements OnInit {
       console.log('Formulario no válido. Por favor, completa todos los campos.');
     }
   }
+  navigateToRestaurants(): void {
+    this.router.navigate(['/home']);
+  }
 }
