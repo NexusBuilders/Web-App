@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Restaurant} from "../../model/restaurant.entity";
 import {RestaurantService} from "../../services/restaurant.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-restaurant',
@@ -12,7 +13,7 @@ export class CardRestaurantComponent {
 
   @Input() restaurants: Array<Restaurant> = [];
 
-  constructor(private planApi : RestaurantService) {
+  constructor(private planApi : RestaurantService, private router: Router) {
     this.restaurants = []
   }
   ngOnInit(){
@@ -20,6 +21,9 @@ export class CardRestaurantComponent {
     .subscribe((data: any)=>{
       this.restaurants = data;
     })
+  }
+  viewMenu() {
+    this.router.navigate(['/order']);
   }
 
 }
