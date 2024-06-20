@@ -33,7 +33,7 @@ export class InicioSesionComponent implements OnInit {
         (user) => {
           console.log('Usuario autenticado:', user);
           if (user && user.userType === 'usuario') {
-            this.router.navigate(['/plan']);
+            this.router.navigate(['/restaurant']);
           } else if (user && user.userType === 'restaurante') {
             this.router.navigate(['/home']);
           } else {

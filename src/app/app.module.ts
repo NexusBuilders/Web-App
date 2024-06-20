@@ -37,7 +37,13 @@ import {StockComponent} from "./components/stock/stock.component";
 import {UserProfileComponent} from "./components/userprofile/userprofile.component";
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 import { OrderConfirmationDialogComponent } from './components/order-confirmation-dialog/order-confirmation-dialog.component';
-import {MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
+import {
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogModule,
+  MatDialogTitle
+} from "@angular/material/dialog";
 import {MatList, MatListItem} from "@angular/material/list";
 import { AnalisisComponent } from './components/perfil/components/analisis/analisis.component';
 import { FormularioComponent } from './components/perfil/components/formulario/formulario.component';
@@ -50,6 +56,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {StockRestaurantComponent} from "./components/perfil/components/stock/stock.component";
 import { NavbarRestaurantComponent } from './public/navbar-restaurant/navbar-restaurant.component';
 import {UserService} from "./shared/services/user.service";
+import { PurchaseDialogComponent } from './components/purchase-dialog/purchase-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +85,8 @@ import {UserService} from "./shared/services/user.service";
     SeccionPerfilComponent,
     TopClientesComponent,
     StockRestaurantComponent,
-    NavbarRestaurantComponent
+    NavbarRestaurantComponent,
+    PurchaseDialogComponent
 
   ],
   imports: [
@@ -107,6 +115,7 @@ import {UserService} from "./shared/services/user.service";
     MatList,
     MatListItem,
     ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [
     provideAnimationsAsync(),

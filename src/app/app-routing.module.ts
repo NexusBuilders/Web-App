@@ -18,6 +18,7 @@ import {HomeComponent} from "./components/perfil/components/home/home.component"
 import {PedidosComponent} from "./components/perfil/components/pedidos/pedidos.component";
 import {StockRestaurantComponent} from "./components/perfil/components/stock/stock.component";
 import {SeccionPerfilComponent} from "./components/perfil/components/seccion-perfil/seccion-perfil.component";
+import {PurchaseDialogComponent} from "./components/purchase-dialog/purchase-dialog.component";
 const routes: Routes = [
   { path: 'login',component:InicioSesionComponent},
   { path: 'registro',component:RegisterComponent},
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'analisis', component: AnalisisComponent },
   { path: 'profileRestaurant', component: SeccionPerfilComponent },
   { path: 'Stock', component: StockRestaurantComponent },
+  {path: 'purchaseDialog', component: PurchaseDialogComponent},
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   //{ path: '**', component: PageNotFoundComponent },
 ];
