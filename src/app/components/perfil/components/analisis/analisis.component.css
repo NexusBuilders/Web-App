@@ -1,20 +1,28 @@
-
-.AnalisisCard{
-  width: 90%;
-  max-height: 900px;
+.table {
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: collapse;
 }
 
-.Analisis{
-  margin: 20px auto;
-  display: grid;
-  grid-gap: 20px;
-  height: 74vh;
-  grid-template-columns: repeat(3, 1fr);
-  display: flex; /*necesario para utilizar justify y align para centrar vertival y horizontal*/
-
-  align-items: center;  /*centra de manera vertical*/
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 8px;
 }
 
-.Analisis .ImagenesOpciones{
-  grid-column: span 2;
+.table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.table td {
+  text-align: center;
+}
+
+.container {
+  margin-top: 20px;
+  height: 83vh;
+}
+
+h1 {
+  margin-bottom: 20px;
 }
