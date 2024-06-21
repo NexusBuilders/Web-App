@@ -4,6 +4,7 @@
   color: black;
   border-radius: 8px;
   padding: 16px;
+  height: 85vh;
 }
 
 .order-summary-card h2 {
