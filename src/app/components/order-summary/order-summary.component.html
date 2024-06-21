@@ -12,7 +12,7 @@
     </mat-list>
     <p>Dirección: {{order.address}}</p>
     <p>Estimación de Llegada: {{order.estimatedTime}}</p>
-    <p>SubTotal: {{order.subtotal | currency}}</p>
+    <p>SubTotal: {{order.subtotal | currency:'PEN'}}</p>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="primary" (click)="pay()">Pagar</button>

@@ -14,7 +14,7 @@ export class OrderSummaryComponent {
     items: [] as any[],
     address: 'Av. Carlos Villarán 285',
     estimatedTime: '15:00 - 16:00',
-    subtotal: 'S/.0.00'
+    subtotal: 0
   };
 
   constructor(private dialog: MatDialog, private cartService: CartService) {
@@ -39,7 +39,7 @@ export class OrderSummaryComponent {
     this.order.items.forEach(item => {
       subtotal += item.price * item.quantity;
     });
-    this.order.subtotal = `S/.${subtotal.toFixed(2)}`;
+    this.order.subtotal = subtotal;
   }
 
   pay(): void {
