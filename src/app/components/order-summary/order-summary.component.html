@@ -1,24 +1,36 @@
-<app-navbar></app-navbar>
+<div class="wrapper">
+  <app-navbar></app-navbar>
 
-<mat-card class="order-summary-card">
-  <mat-card-header>
-    <mat-card-title>Tu Pedido</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item *ngFor="let item of order.items">
-        {{item.name}}: {{item.quantity}}
-        <button mat-icon-button color="primary" (click)="increaseQuantity(item)">+</button>
-        <button mat-icon-button color="warn" (click)="decreaseQuantity(item)">-</button>
-      </mat-list-item>
-    </mat-list>
-    <p>Dirección: {{order.address}}</p>
-    <p>Estimación de Llegada: {{order.estimatedTime}}</p>
-    <p>SubTotal: {{order.subtotal | currency:'PEN'}}</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="primary" (click)="pay()">Pagar</button>
-  </mat-card-actions>
-</mat-card>
-<app-footer></app-footer>
+  <mat-card class="order-summary-card">
+    <mat-card-header>
+      <mat-card-title>Tu Pedido</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let item of order.items">
+          <div class="item-details">
+            <span class="item-name">{{ item.name }}</span>
+            <span class="item-quantity">Cantidad: {{ item.quantity }}</span>
+            <span class="item-price">Precio: {{ item.price | currency:'PEN' }}</span>
+          </div>
+          <div class="button-container">
+            <button mat-icon-button color="primary" (click)="increaseQuantity(item)">
+              <mat-icon>add</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="decreaseQuantity(item)">
+              <mat-icon>remove</mat-icon>
+            </button>
+          </div>
+        </mat-list-item>
+      </mat-list>
+      <p>Dirección: {{ order.address }}</p>
+      <p>Estimación de Llegada: {{ order.estimatedTime }}</p>
+      <p>SubTotal: {{ order.subtotal | currency:'PEN' }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="pay()">Pagar</button>
+    </mat-card-actions>
+  </mat-card>
 
+  <app-footer></app-footer>
+</div>

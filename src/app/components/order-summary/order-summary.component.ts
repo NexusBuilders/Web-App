@@ -18,8 +18,12 @@ export class OrderSummaryComponent {
   };
 
   constructor(private dialog: MatDialog, private cartService: CartService) {
-    this.order.items = this.cartService.getItems();
+    this.loadCartItems();
     this.calculateSubtotal();
+  }
+
+  loadCartItems() {
+    this.order.items = this.cartService.getItems();
   }
 
   increaseQuantity(item: any): void {
@@ -30,8 +34,8 @@ export class OrderSummaryComponent {
   decreaseQuantity(item: any): void {
     if (item.quantity > 0) {
       item.quantity--;
-      this.calculateSubtotal();
     }
+    this.calculateSubtotal();
   }
 
   calculateSubtotal() {

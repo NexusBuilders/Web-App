@@ -12,7 +12,7 @@
       <p>{{lunch.mainCourse}}</p>
     </mat-card-content>
     <mat-card-actions class="price">
-      <button mat-icon-button color="black" aria-label="Add">
+      <button mat-icon-button color="black" aria-label="Add" (click)="addToCart(lunch)">
         <mat-icon>add</mat-icon>
       </button>
       <h4>S/.{{lunch.price}}</h4>

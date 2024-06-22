@@ -1,36 +1,96 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .order-summary-card {
+  flex-grow: 1;
   margin: 20px;
-  background-color: #97E896;
-  color: black;
-  border-radius: 8px;
-  padding: 16px;
-  height: 85vh;
+  padding: 20px;
+  background-color: #F0F4C3;
+  color: #1B5E20;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.order-summary-card h2 {
-  font-size: 1.5em;
+.order-summary-card mat-card-title {
+  font-size: 1.8em;
+  font-weight: bold;
   margin-bottom: 20px;
-}
-
-.order-summary-card button {
-  background-color: #97E896;
-  color: black;
-  border: none;
-  border-radius: 4px;
-  padding: 5px 10px;
-  margin-left: 5px;
-  cursor: pointer;
-}
-
-.order-summary-card button:hover {
-  background-color: #2E7D32;
+  color: #388E3C;
 }
 
 .order-summary-card .mat-list-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-bottom: 1px solid #BDBDBD;
+}
+
+.order-summary-card .item-details {
+  flex-grow: 1;
+}
+
+.order-summary-card .item-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #388E3C;
+}
+
+.order-summary-card .item-quantity,
+.order-summary-card .item-price {
+  color: #4CAF50;
+}
+
+.order-summary-card .button-container {
+  display: flex;
+  align-items: center;
+}
+
+.order-summary-card button {
+  background-color: #66BB6A;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  margin: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.order-summary-card button:hover {
+  background-color: #2E7D32;
+}
+
+.order-summary-card .pay-button {
+  background-color: #388E3C;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.order-summary-card .pay-button:hover {
+  background-color: #2E7D32;
+}
+
+.order-summary-card mat-card-content {
+  margin-top: 10px;
+}
+
+.order-summary-card p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #616161;
 }
 
 .order-summary-card .mat-card-actions {
@@ -39,11 +99,6 @@
   margin-top: 20px;
 }
 
-.order-summary-card .pay-button {
-  background-color: #388E3C;
-  padding: 10px 20px;
-}
-
-.order-summary-card .pay-button:hover {
-  background-color: #2E7D32;
+.app-footer {
+  margin-top: auto; /* Mantiene el footer abajo */
 }

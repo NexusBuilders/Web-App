@@ -23,6 +23,7 @@ export class CardLunchComponent {
   }
 
   addToCart(lunch: Lunch) {
+    const item = { ...lunch, quantity: 1 };
     this.cartService.addItem(lunch);
   }
 }

@@ -5,20 +5,18 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
-  private itemsSubject = new BehaviorSubject<Array<any>>([]);
-  items$ = this.itemsSubject.asObservable();
-
-  private items: Array<any> = [];
+  private items: any[] = [];
 
   addItem(item: any) {
+    if (!item.name) {
+      item.name = 'Menú ' + (this.items.length + 1);
+    }
     const existingItem = this.items.find(i => i.id === item.id);
     if (existingItem) {
       existingItem.quantity++;
     } else {
-      item.quantity = 1;
-      this.items.push(item);
+      this.items.push({ ...item, quantity: 1 });
     }
-    this.itemsSubject.next(this.items);
   }
 
   getItems() {
@@ -27,6 +25,5 @@ export class CartService {
 
   clearCart() {
     this.items = [];
-    this.itemsSubject.next(this.items);
   }
 }
