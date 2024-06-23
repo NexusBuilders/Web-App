@@ -15,7 +15,7 @@ form {
   border-radius: 20px;
   padding: 25px;
   width: 300px;
-  height: 450px;
+  height: 550px;
   margin: 30px auto;
   justify-content: center;
 }
@@ -33,7 +33,7 @@ form div {
   color: #8B4513;
 }
 
-input[type="name"], input[type="lastname"], input[type="email"], input[type="password"] {
+input[id="name"], input[id="lastname"], input[id="email"], input[id="password"],input[id="username"], input[id="phone"] {
   width: 90%;
   padding: 10px;
   border: 1px solid #ccc;

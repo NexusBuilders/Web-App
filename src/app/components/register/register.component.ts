@@ -1,61 +1,73 @@
-import {Component, OnInit} from '@angular/core';
-import {Router, RouterLink} from "@angular/router";
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {UserService} from "../../shared/services/user.service";
+import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UserService } from "../../shared/services/user.service";
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  standalone: true,
-  imports: [
-    RouterLink,
-    ReactiveFormsModule
-  ],
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit{
+export class RegisterComponent implements OnInit {
+  registerForm!: FormGroup;
 
-  registerForm: FormGroup = this.fb.group({
-    name: ['', Validators.required],
-    lastName: ['', Validators.required],
-    email: ['', Validators.required],
-    password: ['', Validators.required]
-  });
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router,
-
   ) { }
 
   ngOnInit(): void {
-
+    this.registerForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      name: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', Validators.required]
+    });
   }
-  register(): void {
+
+  onSubmit(): void {
     if (this.registerForm.valid) {
-      const { email } = this.registerForm.value;
-      this.userService.checkEmailExists(email).subscribe(
-        exists => {
-          if (exists) {
-            alert('El correo electrónico ya está en uso. Por favor, elige otro.');
-          } else {
-            this.userService.register(this.registerForm.value).subscribe(
-              (response) => {
-               alert('Registrado correctamente');
-                this.router.navigate(['/login']);
-              },
-              (error) => {
-                console.error('Error al registrar usuario:', error);
-              }
-            );
-          }
+      const user = {
+        username: this.registerForm.value.username,
+        password: this.registerForm.value.password,
+        roles: ['ROLE_CUSTOMER']
+      };
+
+      this.userService.register(user).subscribe(
+        response => {
+          const credentials = {
+            username: this.registerForm.value.username,
+            password: this.registerForm.value.password
+          };
+
+          this.userService.signIn(credentials).subscribe(
+            signInResponse => {
+              const token = signInResponse.token;
+              const userId = signInResponse.id;
+              const customer = {
+                firstName: this.registerForm.value.name,
+                lastName: this.registerForm.value.lastName,
+                email: this.registerForm.value.email,
+                phone: this.registerForm.value.phone,
+                userId: userId
+              };
+
+              this.userService.createCustomer(customer, token).subscribe(
+                customerResponse => {
+                  console.log('Customer created:', customerResponse);
+                  this.router.navigate(['/login']);
+                },
+                error => console.error('Error creating customer:', error)
+              );
+            },
+            error => console.error('Error signing in:', error)
+          );
         },
-        error => {
-          console.error('Error al verificar correo electrónico:', error);
-        }
+        error => console.error('Error registering user:', error)
       );
-    } else {
-      console.log('Formulario no válido. Por favor, completa todos los campos.');
     }
   }
-
 }

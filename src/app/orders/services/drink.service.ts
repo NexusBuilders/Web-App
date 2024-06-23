@@ -9,7 +9,7 @@ import {Drink} from "../model/drink.entity";
 export class DrinkService extends BaseService<Drink>{
   constructor(http: HttpClient) {
     super(http);
-    this.resourceEndpoint= '/drinks'
+    this.resourceEndpoint= 'api/v1/drinks/restaurant/1'
   }
 
 }

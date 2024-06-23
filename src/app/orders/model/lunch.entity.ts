@@ -1,14 +1,16 @@
 export class Lunch{
   id:number;
-  entree: string;
-  mainCourse: string;
+  starterPlate: string;
+  mainDish: string;
   price: number;
-  imgUrl: string;
+  image: string;
+  restaurantId: number;
   constructor(){
     this.id = 0;
-    this.entree = "";
-    this.mainCourse = "";
+    this.starterPlate = "";
+    this.mainDish = "";
     this.price = 0;
-    this.imgUrl = "";
+    this.image = "";
+    this.restaurantId = 0;
   }
 }

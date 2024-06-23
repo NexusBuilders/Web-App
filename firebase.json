@@ -1,1 +1,16 @@
-{}
+{
+  "hosting": {
+    "public": "dist/easy-food/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

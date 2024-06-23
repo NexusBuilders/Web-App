@@ -1,8 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input,OnInit} from '@angular/core';
 import {Restaurant} from "../../model/restaurant.entity";
 import {RestaurantService} from "../../services/restaurant.service";
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-card-restaurant',
   templateUrl: './card-restaurant.component.html',
@@ -13,14 +12,18 @@ export class CardRestaurantComponent {
 
   @Input() restaurants: Array<Restaurant> = [];
 
-  constructor(private planApi : RestaurantService, private router: Router) {
+  constructor(private restaurantService : RestaurantService, private router: Router) {
     this.restaurants = []
   }
-  ngOnInit(){
-    this.planApi.getAll()
-    .subscribe((data: any)=>{
-      this.restaurants = data;
-    })
+  ngOnInit(): void {
+    this.restaurantService.getRestaurants().subscribe(
+      (data: Restaurant[]) => {
+        this.restaurants = data;
+      },
+      error => {
+        console.error('Error fetching restaurants', error);
+      }
+    );
   }
   viewMenu() {
     this.router.navigate(['/order']);

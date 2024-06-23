@@ -9,6 +9,6 @@ import {Lunch} from "../model/lunch.entity";
 export class LunchService extends BaseService<Lunch>{
   constructor(http: HttpClient) {
     super(http);
-    this.resourceEndpoint= '/lunches'
+    this.resourceEndpoint= '/api/v1/lunches/restaurant/1'
   }
 }

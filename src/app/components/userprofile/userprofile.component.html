@@ -2,22 +2,33 @@
 <div class="containerUserProfile">
   <section class="profile">
     <div class="profile-info">
-      <img src = "{{fotoPerfil}}" alt="Imagen de perfil" class="profile-image">
+      <img src="" alt="Imagen de perfil" class="profile-image">
       <div class="user-details">
-        <h2>{{ nombreUsuario }}</h2>
-        <p class="uppercase-text">{{ correoElectronico }}</p>
+        <h2></h2>
+        <p class="uppercase-text"></p>
       </div>
       <hr class="divider-line">
     </div>
     <div class="menu-container">
-      <button class="menu-button" *ngFor="let item of menuItems" (click)="showProfilePopup()">
-        <i class="{{ item.icon }}"></i>
-        <span>{{ item.text }}</span>
+      <button class="menu-button" (click)="showProfilePopup()">
+        <i class="fa fa-user"></i>
+        <span>Mis Datos</span>
       </button>
-      <!--button class="menu-button"  (click)="cerrarSesion()" -->
-      <button class="menu-button"  routerLink="/login" >
+      <button class="menu-button" (click)="showProfilePopup()">
+        <i class="fa fa-lock"></i>
+        <span>Acceso y Seguridad</span>
+      </button>
+      <button class="menu-button" (click)="showProfilePopup()">
+        <i class="fa fa-cog"></i>
+        <span>Configuración</span>
+      </button>
+      <button class="menu-button" (click)="showProfilePopup()">
+        <i class="fa fa-question-circle"></i>
+        <span>Ayuda</span>
+      </button>
+      <button class="menu-button" routerLink="/login">
         <i class='fa fa-sign-out'></i>
-        <span >Cerrar Sesion</span>
+        <span>Cerrar Sesión</span>
       </button>
     </div>
   </section>
@@ -26,27 +37,27 @@
       <div class="popup-profile-info">
         <a>Mis Datos</a>
         <div class="popup-user-details">
-          <div>
-            <label for="name">Nombre: </label>
-            <input type="name" id="name" [value]= "nombre" name="nombre">
-          </div>
-          <div>
-            <label for="lastname">Apellidos: </label>
-            <input type="lastname" id="lastname" [value]="apellido" name="apellidos">
-          </div>
-          <div>
-            <label for="email">Correo Electrónico: </label>
-            <input type="email"  id="email" [value]="correoElectronico" name="correo">
-          </div>
-          <div>
-            <label for="phone">Teléfono: </label>
-            <input type="phone" id="phone" [value]="telefono" name="telefono">
-          </div>
-          <a class="update-button" mat-button>Actualizar Datos</a>
+          <form [formGroup]="profileForm">
+            <div>
+              <label for="firstName">Nombre: </label>
+              <input type="firstName" id="firstName" formControlName="firstName">
+            </div>
+            <div>
+              <label for="lastName">Apellidos: </label>
+              <input type="text" id="lastName" formControlName="lastName">
+            </div>
+            <div>
+              <label for="email">Correo Electrónico: </label>
+              <input type="email" id="email" formControlName="email">
+            </div>
+            <div>
+              <label for="phone">Teléfono: </label>
+              <input type="text" id="phone" formControlName="phone">
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 <app-footer></app-footer>

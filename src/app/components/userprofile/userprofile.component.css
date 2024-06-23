@@ -128,12 +128,11 @@ html, body {
   text-transform: uppercase;
 }
 
-input[type="name"], [type="lastname"], [type="email"],input[type="phone"] {
+input[id="firstName"], [id="lastName"], [id="email"], [id="phone"] {
   width: 90%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 20px;
-  color: black;
 }
 
 .profile-popup {

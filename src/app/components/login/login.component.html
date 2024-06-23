@@ -2,17 +2,17 @@
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <h1 class="tituloIS">Iniciar Sesion</h1>
     <div>
-      <label for="email">Correo Electronico: </label>
-      <input type="email" id="email" formControlName="email" placeholder="Ingrese su correo">
+      <label for="username">Nombre de Usuario: </label>
+      <input type="text" id="username" formControlName="username" placeholder="Ingrese su nombre de usuario">
     </div>
     <div>
       <label for="password">Contraseña: </label>
       <input type="password" id="password" formControlName="password" placeholder="Ingrese su contraseña">
     </div>
     <button type="submit">Iniciar Sesion</button>
-    <a class="redirection">
+    <div class="redirection">
       <a>¿No tienes cuenta?</a><a class="registro-button" [routerLink]="'/registro'"> Registrate aquí</a>
-    </a>
+    </div>
   </form>
   <button (click)="navigateToRestaurants()">Ir a Restaurantes</button>
 </section>
