@@ -6,7 +6,7 @@ import { Lunch } from '../model/lunch.entity';
 import { TokenStorageService } from '../../shared/services/token.service';
 
 const BASE_URL = 'http://191.239.123.6';
-const LUNCH_API = BASE_URL + '/api/v1/lunches/restaurant/';
+const LUNCH_API = BASE_URL + '/api/v1/lunches';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,20 @@ export class LunchService {
         'Authorization': `Bearer ${token}`
       })
     };
-    return this.http.get<Lunch[]>(`${LUNCH_API}${restaurantId}`, httpOptions).pipe(
+    return this.http.get<Lunch[]>(`${LUNCH_API}/restaurant/${restaurantId}`, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  addLunch(data: any): Observable<any> {
+    const token = this.tokenStorage.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` // Add token to headers
+      })
+    };
+    return this.http.post<any>(LUNCH_API, data, httpOptions).pipe(
       catchError(this.handleError)
     );
   }

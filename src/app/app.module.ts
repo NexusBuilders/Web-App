@@ -46,11 +46,15 @@ import { OverviewComponent } from './components/perfil/components/overview/overv
 import { PedidosComponent } from './components/perfil/components/pedidos/pedidos.component';
 import { SeccionPerfilComponent } from './components/perfil/components/seccion-perfil/seccion-perfil.component';
 import { TopClientesComponent } from './components/perfil/components/top-clientes/top-clientes.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {StockRestaurantComponent} from "./components/perfil/components/stock/stock.component";
 import { NavbarRestaurantComponent } from './public/navbar-restaurant/navbar-restaurant.component';
 import {RegisterComponent} from "./components/register/register.component";
 import { TablaMenuComponent } from './components/perfil/components/tabla-menu/tabla-menu.component';
+import { AgregarMenuDialogComponent } from './components/perfil/components/agregar-menu-dialog/agregar-menu-dialog.component';
+import {MatFormField} from "@angular/material/form-field";
+import {MatInput} from "@angular/material/input";
+import { AgregarBebidaDialogComponent } from './components/perfil/components/agregar-bebida-dialog/agregar-bebida-dialog.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +86,9 @@ import { TablaMenuComponent } from './components/perfil/components/tabla-menu/ta
     TopClientesComponent,
     StockRestaurantComponent,
     NavbarRestaurantComponent,
-    TablaMenuComponent
+    TablaMenuComponent,
+    AgregarMenuDialogComponent,
+    AgregarBebidaDialogComponent
 
   ],
   imports: [
@@ -111,6 +117,9 @@ import { TablaMenuComponent } from './components/perfil/components/tabla-menu/ta
     MatList,
     MatListItem,
     ReactiveFormsModule,
+    MatFormField,
+    MatInput,
+    FormsModule,
   ],
   providers: [
     provideAnimationsAsync(),
