@@ -45,4 +45,7 @@ export class InicioSesionComponent implements OnInit {
       );
     }
   }
+  navigateToRestaurants(): void {
+    this.router.navigate(['/home']);
+  }
 }
