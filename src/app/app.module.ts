@@ -50,6 +50,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {StockRestaurantComponent} from "./components/perfil/components/stock/stock.component";
 import { NavbarRestaurantComponent } from './public/navbar-restaurant/navbar-restaurant.component';
 import {RegisterComponent} from "./components/register/register.component";
+import { TablaMenuComponent } from './components/perfil/components/tabla-menu/tabla-menu.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import {RegisterComponent} from "./components/register/register.component";
     SeccionPerfilComponent,
     TopClientesComponent,
     StockRestaurantComponent,
-    NavbarRestaurantComponent
+    NavbarRestaurantComponent,
+    TablaMenuComponent
 
   ],
   imports: [

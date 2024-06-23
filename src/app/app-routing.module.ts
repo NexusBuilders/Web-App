@@ -19,6 +19,7 @@ import {PedidosComponent} from "./components/perfil/components/pedidos/pedidos.c
 import {StockRestaurantComponent} from "./components/perfil/components/stock/stock.component";
 import {SeccionPerfilComponent} from "./components/perfil/components/seccion-perfil/seccion-perfil.component";
 import {PurchaseDialogComponent} from "./components/purchase-dialog/purchase-dialog.component";
+import {TablaMenuComponent} from "./components/perfil/components/tabla-menu/tabla-menu.component";
 const routes: Routes = [
   { path: 'login',component:InicioSesionComponent},
   { path: 'registro',component:RegisterComponent},
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'profileRestaurant', component: SeccionPerfilComponent },
   { path: 'Stock', component: StockRestaurantComponent },
   {path: 'purchaseDialog', component: PurchaseDialogComponent},
+  {path: 'TablaMenus', component: TablaMenuComponent},
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   //{ path: '**', component: PageNotFoundComponent },
 ];
