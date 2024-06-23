@@ -1,6 +1,8 @@
+// login.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../shared/services/user.service';
+import {TokenStorageService} from "../../shared/services/token.service";
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,39 +11,38 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class InicioSesionComponent implements OnInit {
-  title = 'login';
-  loginForm: FormGroup = this.fb.group({
-    email: ['', Validators.required],
-    password: ['', Validators.required]
-  });
+  loginForm!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
+    private tokenStorage: TokenStorageService,
     private router: Router
   ) { }
-  ngOnInit(): void {
 
+  ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
+
   onSubmit(): void {
     if (this.loginForm.valid) {
-      const { email, password } = this.loginForm.value;
-      this.userService.login(email, password).subscribe(
-        (user) => {
-          if (user.userType === 'usuario') {
-            this.router.navigate(['/plan']);
-          } else if (user.userType === 'restaurante') {
-            this.router.navigate(['/home']);
-          } else {
-            console.error('Tipo de usuario no reconocido:', user.userType);
-          }
+      const credentials = {
+        username: this.loginForm.value.username,
+        password: this.loginForm.value.password
+      };
+
+      this.userService.signIn(credentials).subscribe(
+        response => {
+          this.tokenStorage.saveToken(response.token);
+          this.tokenStorage.saveUser(response);
+          console.log('User logged in:', response);
+          this.router.navigate(['/plan']); // Redirigir a la página de perfil
         },
-        (error) => {
-          console.error('Error al iniciar sesión:', error);
-        }
+        error => console.error('Error logging in:', error)
       );
-    } else {
-      console.log('Formulario no válido. Por favor, completa todos los campos.');
     }
   }
 }

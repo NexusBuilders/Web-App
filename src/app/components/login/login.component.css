@@ -31,7 +31,7 @@ form div {
   color: #8B4513;
 }
 
-input[type="email"], input[type="password"] {
+input[id="username"], input[id="password"] {
   width: 90%;
   padding: 10px;
   border: 1px solid #ccc;
