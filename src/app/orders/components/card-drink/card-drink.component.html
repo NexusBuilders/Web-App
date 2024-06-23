@@ -9,7 +9,7 @@
       <h3>{{drink.name}}</h3>
     </mat-card-content>
     <mat-card-actions class="price">
-      <button mat-icon-button color="black" aria-label="Add">
+      <button mat-icon-button color="black" aria-label="Add" (click)="addToCart(drink)">
         <mat-icon>add</mat-icon>
       </button>
       <h4>S/.{{drink.price}}</h4>

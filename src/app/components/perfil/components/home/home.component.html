@@ -1,4 +1,5 @@
 <app-navbar-restaurant></app-navbar-restaurant>
+
 <div class="containerHome">
   <mat-card class="BotonCard">
     <div class="Home">
@@ -6,16 +7,22 @@
         <!-- Este es un ejemplo de que tambien se puede hacer con RouterLink o con una funcion que tenga route.navigate([[pagina])-->
         <!-- El RouterLink accede el link '/Pedidos' desde el link en el que ya esta (http:local:4080/dashboard/v1 -> http:local:4080/dashboard/v1/Pedidos), en cambio con esta funcion gotopage que hace la funcion route.navigate([pagina]) borra toh el link en el que estas (http:local:4080/dashboard/v1 -> http:local:4080/Pedidos) y accede al link de la 'pagina' (http:local:4080) -->
         <!--<Button class="btn btn-success my-2" routerLink="Pedidos">Pedidos</Button>-->
-        <Button class="btn btn-success my-2" (click)="gotopage('pedidos')">Pedidos</Button>
+        <Button class="btn btn-success my-2" (click)="gotopage('pedidos')">Clientes</Button>
         <!--<Button class="btn btn-success my-2" routerLink="Analisis">Analisis de Negocio</Button>-->
-        <Button class="btn btn-success my-2" (click)="gotopage('analisis') ">Analisis de negocio</Button>
+        <Button class="btn btn-success my-2" (click)="gotopage('analisis') ">Tabla de Pedidos</Button>
         <!--<Button class="btn btn-success my-2" routerLink="Perfil">Perfil</Button>-->
         <Button class="btn btn-success my-2" (click)="gotopage('profileRestaurant')">Perfil</Button>
         <!--<Button class="btn btn-success my-2" routerLink="Stock">Stock</Button>-->
         <Button class="btn btn-success my-2" (click)="gotopage('Stock')">Stock</Button>
+
+        <Button class="btn btn-danger my-2" (click)="gotopage('login')">Regresar</Button>
       </div>
+
     </div>
+
   </mat-card>
+
 </div>
+
 
 <app-footer></app-footer>

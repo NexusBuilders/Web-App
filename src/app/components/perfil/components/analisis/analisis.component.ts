@@ -8,10 +8,16 @@ import {Router} from "@angular/router";
 })
 export class AnalisisComponent {
 
-  constructor(private route: Router) {
-  }
+  ventas = [
+    { nombre: 'Ceviche', cantidad: 10, precio: 8.99 },
+    { nombre: 'Lomo Saltado', cantidad: 20, precio: 5.99 },
+    { nombre: 'Inca Cola', cantidad: 50, precio: 3.50 },
+    { nombre: 'Limonada', cantidad: 30, precio: 4 }
+  ];
 
-  gotopage(pagina:string) {
+  constructor(private route: Router) {}
+
+  gotopage(pagina: string) {
     this.route.navigate([pagina]);
   }
 }

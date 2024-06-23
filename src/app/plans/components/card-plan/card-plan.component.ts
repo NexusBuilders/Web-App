@@ -1,6 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {Plan} from "../../model/plan.entity";
 import {PlanService} from "../../services/plan.service";
+import {PurchaseDialogComponent} from "../../../components/purchase-dialog/purchase-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-card-plan',
@@ -10,7 +12,8 @@ import {PlanService} from "../../services/plan.service";
 export class CardPlanComponent {
   title= "Plan";
   @Input() plans : Array<Plan> = [];
-  constructor(private planApi:PlanService) {
+
+  constructor(private planApi:PlanService, private dialog: MatDialog){
     this.plans = [];
   }
   ngOnInit(){
@@ -18,5 +21,8 @@ export class CardPlanComponent {
     subscribe((data:any)=>{
       this.plans = data;
     })
+  }
+  openPurchaseDialog() {
+    this.dialog.open(PurchaseDialogComponent);
   }
 }

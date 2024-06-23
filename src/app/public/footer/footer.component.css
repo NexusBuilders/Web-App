@@ -1,11 +1,10 @@
-
 p {
   text-align: center;
   color: white;
 }
 .logo-section img{
-  max-height: 100px;
-  margin-left: 20px
+  max-height: 40px;
+  margin-left: 10px
 }
 .footer{
   display: flex;
@@ -19,7 +18,7 @@ p {
   flex-direction: column;
 }
 .contactanos p{
-  font-size: 18px;
+  font-size: 12px;
   margin: 5px 0;
 }
 .email-number{
@@ -38,7 +37,7 @@ p {
 .footer-redes{
   display: flex;
   margin-right: 30px;
-  font-size: 32px;
+  font-size: 15px;
   color: white;
 }
 .footer-redes i{

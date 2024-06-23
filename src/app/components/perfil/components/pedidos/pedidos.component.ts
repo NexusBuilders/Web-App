@@ -17,13 +17,16 @@ export class PedidosComponent {
     this.dataSource = new MatTableDataSource<any>();
     this.clientes.push(new Clientes("InstaClothes", 5));
     this.clientes.push(new Clientes("New Gafas", 4));
+    this.clientes.push(new Clientes("Hardware Signals", 10));
+    this.clientes.push(new Clientes("Tech Solutions", 8));
+    this.clientes.push(new Clientes("Rejoles Zafiro", 13));
 
 
     this.dataSource.data=this.clientes;
   }
 
   onNavigateHome() {
-    this.router.navigate(['Home']).then();
+    this.router.navigate(['home']).then();
   }
 
   ngOnInit(): void {
