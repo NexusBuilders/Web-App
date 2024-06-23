@@ -1,25 +1,26 @@
-import {Component, Input} from '@angular/core';
-import {Restaurant} from "../../model/restaurant.entity";
-import {RestaurantService} from "../../services/restaurant.service";
+import { Component, OnInit } from '@angular/core';
+import { Restaurant } from "../../model/restaurant.entity";
+import { RestaurantService } from "../../services/restaurant.service";
 
 @Component({
   selector: 'app-card-restaurant',
   templateUrl: './card-restaurant.component.html',
-  styleUrl: './card-restaurant.component.css'
+  styleUrls: ['./card-restaurant.component.css']
 })
-export class CardRestaurantComponent {
-  title = "Restaurant"
+export class CardRestaurantComponent implements OnInit {
+  title = "Restaurant";
+  restaurants: Restaurant[] = [];
 
-  @Input() restaurants: Array<Restaurant> = [];
+  constructor(private restaurantService: RestaurantService) {}
 
-  constructor(private planApi : RestaurantService) {
-    this.restaurants = []
+  ngOnInit(): void {
+    this.restaurantService.getRestaurants().subscribe(
+      (data: Restaurant[]) => {
+        this.restaurants = data;
+      },
+      error => {
+        console.error('Error fetching restaurants', error);
+      }
+    );
   }
-  ngOnInit(){
-    this.planApi.getAll()
-    .subscribe((data: any)=>{
-      this.restaurants = data;
-    })
-  }
-
 }
