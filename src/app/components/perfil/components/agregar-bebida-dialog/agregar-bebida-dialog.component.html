@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Agregar Menú</h2>
+<div mat-dialog-content>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Nombre" [(ngModel)]="data.name" name="mainDish">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Precio" [(ngModel)]="data.price" name="price">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button color="primary" (click)="onSaveClick()">Guardar</button>
+</div>
