@@ -57,6 +57,8 @@ import {StockRestaurantComponent} from "./components/perfil/components/stock/sto
 import { NavbarRestaurantComponent } from './public/navbar-restaurant/navbar-restaurant.component';
 import {UserService} from "./shared/services/user.service";
 import { PurchaseDialogComponent } from './components/purchase-dialog/purchase-dialog.component';
+import { LoginRsComponent } from './components/login-rs/login-rs.component';
+import { RegisterRsComponent } from './components/register-rs/register-rs.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,7 +88,9 @@ import { PurchaseDialogComponent } from './components/purchase-dialog/purchase-d
     TopClientesComponent,
     StockRestaurantComponent,
     NavbarRestaurantComponent,
-    PurchaseDialogComponent
+    PurchaseDialogComponent,
+    LoginRsComponent,
+    RegisterRsComponent
 
   ],
   imports: [

@@ -19,9 +19,13 @@ import {PedidosComponent} from "./components/perfil/components/pedidos/pedidos.c
 import {StockRestaurantComponent} from "./components/perfil/components/stock/stock.component";
 import {SeccionPerfilComponent} from "./components/perfil/components/seccion-perfil/seccion-perfil.component";
 import {PurchaseDialogComponent} from "./components/purchase-dialog/purchase-dialog.component";
+import {LoginRsComponent} from "./components/login-rs/login-rs.component";
+import {RegisterRsComponent} from "./components/register-rs/register-rs.component";
 const routes: Routes = [
   { path: 'login',component:InicioSesionComponent},
+  { path: 'loginR',component:LoginRsComponent},
   { path: 'registro',component:RegisterComponent},
+  { path: 'registerR', component: RegisterRsComponent },
   { path: 'profile',component:UserProfileComponent},
   { path: 'plan', component: PlanComponent },
   { path: 'restaurant', component: RestaurantComponent },
@@ -38,6 +42,7 @@ const routes: Routes = [
   { path: 'Stock', component: StockRestaurantComponent },
   {path: 'purchaseDialog', component: PurchaseDialogComponent},
   { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: '/loginR', pathMatch: 'full' },
   //{ path: '**', component: PageNotFoundComponent },
 ];
 @NgModule({

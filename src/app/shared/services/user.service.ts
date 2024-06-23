@@ -7,6 +7,7 @@ import {catchError, map, Observable, of} from 'rxjs';
 })
 export class UserService {
   private apiUrl = 'http://localhost:3000/users';
+  private restaurantUrl = 'http://localhost:3000/userR';
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<any> {
@@ -26,6 +27,7 @@ export class UserService {
     );
   }
 
+
   checkEmailExists(email: string): Observable<boolean> {
     return this.http.get<any[]>(this.apiUrl).pipe(
       map(users => users.some(u => u.email === email))
@@ -34,6 +36,38 @@ export class UserService {
 
   register(user: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, user);
+  }
+
+  loginR(emailR: string, passwordR: string): Observable<any> {
+    return this.http.get<any[]>(this.restaurantUrl).pipe(
+      map(restaurants => {
+        const restaurant = restaurants.find(r => r['email-R'] === emailR && r['password-R'] === passwordR);
+        if (restaurant) {
+          return { ...restaurant, userType: 'restaurante' };
+        } else {
+          throw new Error('Correo electrónico o contraseña incorrectos');
+        }
+      }),
+      catchError(error => {
+        console.error(error);
+        return of(null);
+      })
+    );
+  }
+
+  checkEmailExistsR(emailR: string): Observable<boolean> {
+    return this.http.get<any[]>(this.restaurantUrl).pipe(
+      map(restaurants => restaurants.some(r => r['email-R'] === emailR))
+    );
+  }
+
+  registerR(userR: any): Observable<any> {
+    const formattedUserR = {
+      'name-R': userR.nameR,
+      'email-R': userR.emailR,
+      'password-R': userR.passwordR
+    };
+    return this.http.post<any>(this.restaurantUrl, formattedUserR);
   }
 }
 
