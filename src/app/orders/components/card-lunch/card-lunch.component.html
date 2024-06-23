@@ -2,14 +2,14 @@
   <mat-card *ngFor="let lunch of lunches" class="lunch-mat-card ">
     <mat-card-header>
       <img mat-card-image
-           [src]="lunch.imgUrl"
-           [alt]="lunch.mainCourse"/>
+           [src]="lunch.image"
+           [alt]="lunch.mainDish"/>
     </mat-card-header>
     <mat-card-content class="contentCardLunch">
       <h3>Entrada</h3>
-      <p>{{lunch.entree}}</p>
+      <p>{{lunch.starterPlate}}</p>
       <h3>Segundo</h3>
-      <p>{{lunch.mainCourse}}</p>
+      <p>{{lunch.mainDish}}</p>
     </mat-card-content>
     <mat-card-actions class="price">
       <button mat-icon-button color="black" aria-label="Add">
