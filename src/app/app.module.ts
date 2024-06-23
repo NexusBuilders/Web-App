@@ -49,12 +49,15 @@ import { TopClientesComponent } from './components/perfil/components/top-cliente
 import {ReactiveFormsModule} from "@angular/forms";
 import {StockRestaurantComponent} from "./components/perfil/components/stock/stock.component";
 import { NavbarRestaurantComponent } from './public/navbar-restaurant/navbar-restaurant.component';
+import {RegisterComponent} from "./components/register/register.component";
+
 @NgModule({
   declarations: [
     AppComponent,
     CardDrinkComponent,
     CardLunchComponent,
     OrderComponent,
+    RegisterComponent,
     CardRestaurantComponent,
     RestaurantComponent,
     CardPlanComponent,
