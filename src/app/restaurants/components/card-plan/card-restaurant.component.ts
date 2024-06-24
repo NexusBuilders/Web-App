@@ -1,20 +1,19 @@
-import {Component, Input,OnInit} from '@angular/core';
-import {Restaurant} from "../../model/restaurant.entity";
-import {RestaurantService} from "../../services/restaurant.service";
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Restaurant } from "../../model/restaurant.entity";
+import { RestaurantService } from "../../services/restaurant.service";
+
 @Component({
   selector: 'app-card-restaurant',
   templateUrl: './card-restaurant.component.html',
-  styleUrl: './card-restaurant.component.css'
+  styleUrls: ['./card-restaurant.component.css']
 })
-export class CardRestaurantComponent {
-  title = "Restaurant"
+export class CardRestaurantComponent implements OnInit {
+  title = "Restaurant";
+  restaurants: Restaurant[] = [];
 
-  @Input() restaurants: Array<Restaurant> = [];
+  constructor(private restaurantService: RestaurantService, private router: Router) {}
 
-  constructor(private restaurantService : RestaurantService, private router: Router) {
-    this.restaurants = []
-  }
   ngOnInit(): void {
     this.restaurantService.getRestaurants().subscribe(
       (data: Restaurant[]) => {
@@ -25,8 +24,9 @@ export class CardRestaurantComponent {
       }
     );
   }
-  viewMenu() {
+
+  viewMenu(restaurantId: number): void {
+    localStorage.setItem('selectedRestaurantId', restaurantId.toString());
     this.router.navigate(['/order']);
   }
-
 }

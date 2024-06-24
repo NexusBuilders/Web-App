@@ -37,13 +37,7 @@ import {StockComponent} from "./components/stock/stock.component";
 import {UserProfileComponent} from "./components/userprofile/userprofile.component";
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 import { OrderConfirmationDialogComponent } from './components/order-confirmation-dialog/order-confirmation-dialog.component';
-import {
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogModule,
-  MatDialogTitle
-} from "@angular/material/dialog";
+import {MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
 import {MatList, MatListItem} from "@angular/material/list";
 import { AnalisisComponent } from './components/perfil/components/analisis/analisis.component';
 import { FormularioComponent } from './components/perfil/components/formulario/formulario.component';
@@ -52,17 +46,23 @@ import { OverviewComponent } from './components/perfil/components/overview/overv
 import { PedidosComponent } from './components/perfil/components/pedidos/pedidos.component';
 import { SeccionPerfilComponent } from './components/perfil/components/seccion-perfil/seccion-perfil.component';
 import { TopClientesComponent } from './components/perfil/components/top-clientes/top-clientes.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {StockRestaurantComponent} from "./components/perfil/components/stock/stock.component";
 import { NavbarRestaurantComponent } from './public/navbar-restaurant/navbar-restaurant.component';
-import {UserService} from "./shared/services/user.service";
-import { PurchaseDialogComponent } from './components/purchase-dialog/purchase-dialog.component';
+import {RegisterComponent} from "./components/register/register.component";
+import { TablaMenuComponent } from './components/perfil/components/tabla-menu/tabla-menu.component';
+import { AgregarMenuDialogComponent } from './components/perfil/components/agregar-menu-dialog/agregar-menu-dialog.component';
+import {MatFormField} from "@angular/material/form-field";
+import {MatInput} from "@angular/material/input";
+import { AgregarBebidaDialogComponent } from './components/perfil/components/agregar-bebida-dialog/agregar-bebida-dialog.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     CardDrinkComponent,
     CardLunchComponent,
     OrderComponent,
+    RegisterComponent,
     CardRestaurantComponent,
     RestaurantComponent,
     CardPlanComponent,
@@ -86,7 +86,9 @@ import { PurchaseDialogComponent } from './components/purchase-dialog/purchase-d
     TopClientesComponent,
     StockRestaurantComponent,
     NavbarRestaurantComponent,
-    PurchaseDialogComponent
+    TablaMenuComponent,
+    AgregarMenuDialogComponent,
+    AgregarBebidaDialogComponent
 
   ],
   imports: [
@@ -115,11 +117,13 @@ import { PurchaseDialogComponent } from './components/purchase-dialog/purchase-d
     MatList,
     MatListItem,
     ReactiveFormsModule,
-    MatDialogModule
+    MatFormField,
+    MatInput,
+    FormsModule,
   ],
   providers: [
     provideAnimationsAsync(),
-    UserService,
+    DrinkService,
     {provide: 'environment', useValue: environment},
 
   ],

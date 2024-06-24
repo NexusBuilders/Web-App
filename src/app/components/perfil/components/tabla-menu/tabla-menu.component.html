@@ -1,0 +1,70 @@
+<app-navbar-restaurant></app-navbar-restaurant>
+<div class="containerTableMenu">
+  <h1>Tus productos</h1>
+<div class="tablasmenu">
+  <!-- Lunches Table -->
+  <div class="table-lunch">
+    <div class="demo-button-container">
+      <button mat-raised-button (click)="openAddMenuDialog()" class="demo-button">
+        Añadir menú
+      </button>
+      <button mat-raised-button [disabled]="!lunches.length" class="demo-button">
+        Eliminar menú
+      </button>
+    </div>
+
+    <table mat-table [dataSource]="lunches" class="mat-elevation-z8 demo-table">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let lunch">{{ lunch.id }}</td>
+      </ng-container>
+      <ng-container matColumnDef="starterPlate">
+        <th mat-header-cell *matHeaderCellDef>Plato de Entrada</th>
+        <td mat-cell *matCellDef="let lunch">{{ lunch.starterPlate }}</td>
+      </ng-container>
+      <ng-container matColumnDef="mainDish">
+        <th mat-header-cell *matHeaderCellDef>Segundo</th>
+        <td mat-cell *matCellDef="let lunch">{{ lunch.mainDish }}</td>
+      </ng-container>
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Precio</th>
+        <td mat-cell *matCellDef="let lunch">{{ lunch.price }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsLunches"></tr>
+      <tr mat-row *matRowDef="let lunch; columns: displayedColumnsLunches;"></tr>
+    </table>
+  </div>
+
+  <!-- Drinks Table -->
+  <div class="tabla-drinks">
+    <button mat-raised-button (click)="openAddDrinkDialog()" class="demo-button">
+      Añadir bebida
+    </button>
+    <button mat-raised-button [disabled]="!drinks.length" class="demo-button">
+      Eliminar bebida
+    </button>
+
+
+    <table mat-table [dataSource]="drinks" class="mat-elevation-z8 demo-table">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let drink">{{ drink.id }}</td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let drink">{{ drink.name }}</td>
+      </ng-container>
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Precio</th>
+        <td mat-cell *matCellDef="let drink">{{ drink.price }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsDrinks"></tr>
+      <tr mat-row *matRowDef="let drink; columns: displayedColumnsDrinks;"></tr>
+    </table>
+  </div>
+</div>
+</div>
+
+<app-footer></app-footer>
