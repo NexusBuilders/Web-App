@@ -1,0 +1,18 @@
+<section class="login-rs">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h2 class="tituloR">Iniciar Sesión en Restaurante</h2>
+    <div>
+      <label for="emailR">Correo Electrónico:</label>
+      <input type="email" id="emailR" formControlName="emailR" placeholder="Ingrese su correo" />
+    </div>
+    <div>
+      <label for="passwordR">Contraseña:</label>
+      <input type="password" id="passwordR" formControlName="passwordR" placeholder="Ingrese su contraseña" />
+    </div>
+    <button type="submit">Iniciar Sesión</button>
+    <div class="redirection">
+      <span>¿No tienes una cuenta?</span>
+      <a class="register-link" routerLink="/registerR">Regístrate</a>
+    </div>
+  </form>
+</section>

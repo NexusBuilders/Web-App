@@ -1,75 +1,130 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-
-const BASE_URL = 'http://191.239.123.6';
-const AUTH_API = BASE_URL + '/api/v1/authentication/';
-const CUSTOMER_API = BASE_URL + '/api/v1/customers';
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+import { HttpClient } from '@angular/common/http';
+import {catchError, map, Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  private apiUrl = 'http://localhost:3000/users';
+  private restaurantUrl = 'http://localhost:3000/userR';
   constructor(private http: HttpClient) {}
 
+  login(email: string, password: string): Observable<any> {
+    return this.http.get<any[]>(this.apiUrl).pipe(
+      map(users => {
+        const user = users.find(u => u.email === email && u.password === password);
+        if (user) {
+          return { ...user, userType: 'usuario' };
+        } else {
+          throw new Error('Usuario o contraseña incorrectos');
+        }
+      }),
+      catchError(error => {
+        console.error(error);
+        return of(null);
+      })
+    );
+  }
+
+
+  checkEmailExists(email: string): Observable<boolean> {
+    return this.http.get<any[]>(this.apiUrl).pipe(
+      map(users => users.some(u => u.email === email))
+    );
+  }
+
   register(user: any): Observable<any> {
-    return this.http.post(AUTH_API + 'sign-up', user, httpOptions)
-      .pipe(catchError(this.handleError));
+    return this.http.post<any>(this.apiUrl, user);
   }
 
-  signIn(credentials: any): Observable<any> {
-    return this.http.post(AUTH_API + 'sign-in', credentials, this.httpOptions)
-      .pipe(catchError(this.handleError));
-  }
-
-  createCustomer(customer: any, token: string): Observable<any> {
-    const httpOptionsWithToken = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}` // Add token to headers
+  loginR(emailR: string, passwordR: string): Observable<any> {
+    return this.http.get<any[]>(this.restaurantUrl).pipe(
+      map(restaurants => {
+        const restaurant = restaurants.find(r => r['email-R'] === emailR && r['password-R'] === passwordR);
+        if (restaurant) {
+          return { ...restaurant, userType: 'restaurante' };
+        } else {
+          throw new Error('Correo electrónico o contraseña incorrectos');
+        }
+      }),
+      catchError(error => {
+        console.error(error);
+        return of(null);
       })
-    };
-    return this.http.post(CUSTOMER_API, customer, httpOptionsWithToken)
-      .pipe(catchError(this.handleError));
+    );
   }
 
-  getUserProfile(userId: number, token: string): Observable<any> {
-    const httpOptionsWithToken = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      })
-    };
-    return this.http.get(`${CUSTOMER_API}/user/${userId}`, httpOptionsWithToken)
-      .pipe(catchError(this.handleError));
+  checkEmailExistsR(emailR: string): Observable<boolean> {
+    return this.http.get<any[]>(this.restaurantUrl).pipe(
+      map(restaurants => restaurants.some(r => r['email-R'] === emailR))
+    );
   }
 
-  updateUserProfile(id: number, userProfile: any, token: string): Observable<any> {
-    const httpOptionsWithToken = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      })
+  registerR(userR: any): Observable<any> {
+    const formattedUserR = {
+      'name-R': userR.nameR,
+      'email-R': userR.emailR,
+      'password-R': userR.passwordR
     };
-    return this.http.put(`${CUSTOMER_API}/${id}`, userProfile, httpOptionsWithToken)
-      .pipe(catchError(this.handleError));
-  }
-
-  private handleError(error: any): Observable<never> {
-    console.error('An error occurred', error);
-    return throwError(error.message || error);
-  }
-
-  private get httpOptions() {
-    return {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
+    return this.http.post<any>(this.restaurantUrl, formattedUserR);
   }
 }
+
+
+
+
+
+
+// private apiURL = 'https://my-json-server.typicode.com/JosArr/databaseFinanzas/usuarios';
+  // isLoggedIn: boolean = false;
+  // usuarioLogueado: any;
+  // constructor(private http: HttpClient) { }
+  //
+  // addUser(user: any): Observable<any> {
+  //   return this.http.post<any>(this.apiURL, user);
+  // }
+  //
+  // getUserByEmail(email: string): Observable<any> {
+  //   return this.http.get<any[]>(this.apiURL).pipe(
+  //     map(users => users.find(user => user.correo === email))
+  //   );
+  // }
+  // editarUsuario(usuario: any): Observable<any> {
+  //   const url = `${this.apiURL}/${usuario.id}`;
+  //   return this.http.put<any>(url, usuario);
+  // }
+  // getUserPassword(): Observable<string[]> {
+  //   return this.http.get<any[]>(this.apiURL).pipe(
+  //     map(users => users.map(user => user.contrasena))
+  //   );
+  // }
+  // loginUser(email: string, password: string): Observable<any> {
+  //   const loginData = {
+  //     correo: email,
+  //     contrasena: password,
+  //   };
+  //
+  //
+  //   return this.http.post<any>(`${this.apiURL}/login`, loginData).pipe(
+  //     map((response) => {
+  //       if (response) {
+  //         this.isLoggedIn = true;
+  //       }
+  //       return response;
+  //     })
+  //   );
+  // }
+  // cerrarSesion() {
+  //   this.isLoggedIn = false;
+  //   this.usuarioLogueado = null;
+  // }
+  // setUsuarioLogueado(usuario: any) {
+  //   this.usuarioLogueado = usuario;
+  //   this.isLoggedIn = true;
+  // }
+  // getUsuarioLogueado() {
+  //   return this.usuarioLogueado;
+  // }
+
+// }
